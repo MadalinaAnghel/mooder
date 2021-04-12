@@ -26,7 +26,7 @@ export default function Login() {
     .then(res => {
       localStorage.setItem("userId", res.data._id);
       localStorage.setItem("jwtToken", res.data.token);
-      history.push("/create_profile");
+      history.push("/newsfeed");
     })
     .catch(err => console.log(err.data));
 
@@ -35,9 +35,9 @@ export default function Login() {
   }
 
   return (
-    <div className="user-form">
+    <div className="form">
       <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
+        <Form.Group size="lg" controlId="log-email">
           <Form.Control
             autoFocus
             type="email"
@@ -46,7 +46,7 @@ export default function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" controlId="password">
+        <Form.Group size="lg" controlId="log-password">
           <Form.Control
             type="password"
             placeholder="Password"

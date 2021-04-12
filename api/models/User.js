@@ -3,9 +3,24 @@ const jwt = require("jsonwebtoken");
 const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require("mongoose-findorcreate");
 
+const imageSchema = new mongoose.Schema({
+    imageName: {
+        type: String,
+        default: "none",
+        required: true
+    },
+    imageData: {
+        type: String,
+        required: true
+    }
+});
+
 const userSchema = new mongoose.Schema ({
   username: String,
-  password: String
+  password: String,
+  avatar: imageSchema,
+  name: String,
+  description: String
 });
 
 userSchema.plugin(passportLocalMongoose);

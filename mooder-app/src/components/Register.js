@@ -37,9 +37,9 @@ export default function Register() {
   }
 
   return (
-    <div className="user-form">
+    <div className="form">
       <Form onSubmit={handleSubmit} >
-        <Form.Group size="lg" controlId="email" >
+        <Form.Group size="lg" controlId="reg-email" >
           <Form.Control
             autoFocus
             type="email"
@@ -48,7 +48,7 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" controlId="password" >
+        <Form.Group size="lg" controlId="reg-password" >
           <Form.Control
             type="password"
             placeholder="Password"

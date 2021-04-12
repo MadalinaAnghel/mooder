@@ -40,7 +40,7 @@ footer {
 
 /* home page tab view */
 .tab-view {
-  margin-top: 10%;
+  margin-top: 7%;
 }
 
 .tab {
@@ -64,29 +64,49 @@ footer {
 }
 
 /* register and login forms */
-.user-form {
-  padding: 60px 0;
+.form {
+  padding: 40px 0;
 }
 
-.user-form form {
+.form form {
   margin: 0 auto;
   max-width: 320px;
 }
 
-.user-form .form-control:focus{
+.form .form-control:focus{
   border-color: #A898A8;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #A898A8;
 }
 
 /* register and login form button */
-.user-form .btn-primary, .user-form .btn-primary:disabled, .user-form .btn-primary:focus, .user-form .btn-primary:active {
+.form .btn-primary, .form .btn-primary:disabled, .form .btn-primary:focus, .form .btn-primary:active {
   border-color: #3D323D;
   background-color: #3D323D;
   box-shadow: none;
 }
 
-.user-form .btn-primary:hover, .user-form .btn-primary:hover:active:focus, .user-form .btn-primary:hover:active, .user-form .btn-primary:hover:focus {
+.form .btn-primary:hover, .form .btn-primary:hover:active:focus, .form .btn-primary:hover:active, .form .btn-primary:hover:focus {
   border-color: #806E80;
   background-color: #806E80;
   box-shadow: none;
+}
+
+/* create profile */
+.create-profile-div {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 7%;
+  padding: 10px;
+}
+
+/* avatar */
+.avatar-img {
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: -10px auto 1rem;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ddd;
 }

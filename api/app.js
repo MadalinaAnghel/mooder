@@ -12,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.use('/uploads', express.static('uploads')); 
 app.use(session({ secret: process.env.SESSION_SECRET, cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
 app.use(passport.initialize());
