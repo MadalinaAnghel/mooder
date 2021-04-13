@@ -5,14 +5,13 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: "Roboto", sans-serif;
-}
-
-body {
-  background: #F3EDF3;
+#my-body {
+  background: #EEE8EE;
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  color: #495057;
   padding: 0 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 /* header */
@@ -21,18 +20,19 @@ header {
   border-radius: 5px;
   margin: 4px -12px;
   padding: 20px 0;
+  height: auto;
 }
 
 header h1 {
-  color: #F3EDF3;
+  color: #fff;
   font-family: "Gravitas One", serif;
 }
 
 /* footer */
 footer {
   color: #B3ACB3;
-  position: absolute;
   text-align: center;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 2.5rem;
@@ -46,7 +46,7 @@ footer {
 .tab {
   color: #3D323D;
   font-size: large;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .tab:hover {
@@ -109,4 +109,33 @@ footer {
   width: 200px;
   height: 200px;
   border: 1px solid #ddd;
+}
+
+/* newsfeed background divs */
+.profile-div {
+  margin: 5% -10px;
+  background-color: #fff;
+  border-radius: 5px;
+  height: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-div h3 {
+  color: #3D323D;
+  font-weight: 700;
+}
+
+.posts-div {
+  margin: 2.5% -10px;
+  background-color: #EEE8EE;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.friends-div {
+  margin: 5% -10px;
+  background-color: #fff;
+  border-radius: 5px;
+  height: auto;
 }

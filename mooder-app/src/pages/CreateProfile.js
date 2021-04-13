@@ -16,10 +16,6 @@ export default function CreateProfile() {
 
   let history = useHistory();
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
-
   function handleClick() {
     history.push("/newsfeed");
   }
@@ -40,10 +36,10 @@ export default function CreateProfile() {
                 <Form>
                   <Avatar />
                   <Form.Group size="lg" >
-                    <Username />
+                    <Username edit={true} />
                   </Form.Group>
-                  <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Description />
+                  <Form.Group >
+                    <Description edit={true} />
                   </Form.Group>
                   <Button className="form-btn" block size="lg" type="submit" onClick={handleClick} >
                     Finish
