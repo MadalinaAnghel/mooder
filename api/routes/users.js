@@ -166,4 +166,72 @@ router.route("/description")
     });
   });
 
+// posts
+router.route("/post")
+  .post(auth.required, (req, res, next) => {
+    const { payload: { id } } = req;
+
+    User.updateOne(
+      {_id: id},
+      {
+        $push:
+        {
+          posts:
+          {
+            emoji: req.body.emoji,
+            text: req.body.text,
+            date: Date.now()
+          }
+        }
+      },
+      (err) => {
+        if(!err) {
+          res.sendStatus(200);
+        } else {
+          console.log(err);
+          res.sendStatus(400);
+        }
+      });
+  });
+
+router.route("/posts")
+  .get(auth.required, (req, res, next) => {
+    const { payload: { id } } = req;
+
+      User.findById(id, (err, user) => {
+        if(err) {
+          console.log(err);
+        } else {
+          if(user.posts) {
+            res.send(user.posts);
+          } else {
+            res.sendStatus(400);
+          }
+      }
+    });
+  });
+
+router.route("/delete-post")
+  .post(auth.required, (req, res, next) => {
+    const { payload: { id } } = req;
+
+    User.updateOne(
+      {_id: id},
+      {
+        $pull:
+        {
+          posts: {_id: req.body.id}
+        }
+      },
+      (err) => {
+        if(!err) {
+          res.sendStatus(200);
+        } else {
+          console.log(err);
+          res.sendStatus(400);
+        }
+      });
+  });
+
+
 module.exports = router;

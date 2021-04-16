@@ -3,7 +3,8 @@ import Header from "../components/Header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Profile from "../components/Profile";
+import Profile from "../partialPages/Profile";
+import Feed from "../partialPages/Feed";
 import { useHistory } from "react-router-dom";
 
 export default function Newsfeed() {
@@ -27,7 +28,7 @@ export default function Newsfeed() {
             </Col>
             <Col md="6">
               <div className="posts-div">
-                <h1> Posts </h1>
+                <Feed />
               </div>
             </Col>
             <Col xs lg="3">

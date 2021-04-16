@@ -5,6 +5,8 @@ import noPhoto from "../images/no-photo-available.png";
 
 export default function Avatar() {
 
+  const _isMounted = useRef(true);
+
   const jwt = localStorage.getItem('jwtToken');
   const [avatar, setAvatar] = useState(noPhoto);
 
@@ -20,15 +22,20 @@ export default function Avatar() {
       }
     )
     .then(res => {
-      if(res.data) {
-        setAvatar(process.env.REACT_APP_IMG_URL + res.data);
-      } else {
-        setAvatar(noPhoto);
+      if (_isMounted.current) {
+        if(res.data) {
+          setAvatar(process.env.REACT_APP_IMG_URL + res.data);
+        } else {
+          setAvatar(noPhoto);
+        }
       }
     })
     .catch(err => {
       setAvatar(noPhoto);
     });
+    return () => {
+      _isMounted.current = false;
+    }
   });
 
   function avatarClicked() {

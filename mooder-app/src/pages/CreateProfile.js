@@ -33,7 +33,7 @@ export default function CreateProfile() {
             <Col md="6">
               <div className="create-profile-div">
                 <div className="form">
-                <Form>
+                <Form onSubmit={handleClick}>
                   <Avatar />
                   <Form.Group size="lg" >
                     <Username edit={true} />
@@ -41,7 +41,7 @@ export default function CreateProfile() {
                   <Form.Group >
                     <Description edit={true} />
                   </Form.Group>
-                  <Button className="form-btn" block size="lg" type="submit" onClick={handleClick} >
+                  <Button className="form-btn" block size="lg" type="submit"  >
                     Finish
                   </Button>
                 </Form>

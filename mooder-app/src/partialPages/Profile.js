@@ -1,7 +1,7 @@
 import React from "react";
-import Avatar from "./Avatar";
-import Username from "./Username";
-import Description from "./Description";
+import Avatar from "../components/Avatar";
+import Username from "../components/Username";
+import Description from "../components/Description";
 
 export default function Profile() {
 

@@ -4,15 +4,21 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require("mongoose-findorcreate");
 
 const imageSchema = new mongoose.Schema({
-    imageName: {
-        type: String,
-        default: "none",
-        required: true
-    },
-    imageData: {
-        type: String,
-        required: true
-    }
+  imageName: {
+      type: String,
+      default: "none",
+      required: true
+  },
+  imageData: {
+      type: String,
+      required: true
+  }
+});
+
+const postSchema = new mongoose.Schema({
+  emoji: String,
+  text: String,
+  date: Date
 });
 
 const userSchema = new mongoose.Schema ({
@@ -20,7 +26,8 @@ const userSchema = new mongoose.Schema ({
   password: String,
   avatar: imageSchema,
   name: String,
-  description: String
+  description: String,
+  posts: [postSchema]
 });
 
 userSchema.plugin(passportLocalMongoose);

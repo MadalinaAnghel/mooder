@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import querystring from "querystring";
 
 export default function Description(props) {
+
+  const _isMounted = useRef(true);
 
   const jwt = localStorage.getItem('jwtToken');
 
@@ -22,14 +24,19 @@ export default function Description(props) {
       }
     )
     .then(res => {
-      if(res.data) {
-        setDescription(res.data);
+      if (_isMounted.current) {
+        if(res.data) {
+          setDescription(res.data);
+        }
       }
     })
     .catch(err => {
       setDescription("");
     });
-  });
+    return () => {
+      _isMounted.current = false;
+    }
+  }, [props.edit, jwt]);
 
   function handleChange(event) {
 

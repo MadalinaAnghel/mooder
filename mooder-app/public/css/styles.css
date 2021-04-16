@@ -82,13 +82,13 @@ footer {
 .form .btn-primary, .form .btn-primary:disabled, .form .btn-primary:focus, .form .btn-primary:active {
   border-color: #3D323D;
   background-color: #3D323D;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .form .btn-primary:hover, .form .btn-primary:hover:active:focus, .form .btn-primary:hover:active, .form .btn-primary:hover:focus {
   border-color: #806E80;
   background-color: #806E80;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 /* create profile */
@@ -111,7 +111,7 @@ footer {
   border: 1px solid #ddd;
 }
 
-/* newsfeed background divs */
+/* current user profile div */
 .profile-div {
   margin: 5% -10px;
   background-color: #fff;
@@ -126,11 +126,128 @@ footer {
   font-weight: 700;
 }
 
+/* posts div */
 .posts-div {
   margin: 2.5% -10px;
-  background-color: #EEE8EE;
+  background-color: transparent;
   border-radius: 5px;
-  height: 100%;
+}
+
+/* create post form */
+.post-form {
+  margin: 0 20px;
+  height: auto;
+  position: relative;
+}
+
+.post-form .dropdown-item {
+  margin: 0;
+  padding: 0;
+}
+
+.post-form .dropdown-menu {
+  padding: 0;
+}
+
+.dropdown-emoji .btn-outline-light, .dropdown-emoji .btn-outline-light:active:focus, .dropdown-emoji .btn-outline-light:hover,
+.dropdown-emoji .btn-outline-light:active, .dropdown-emoji .btn-outline-light:focus, .open > .dropdown-toggle.btn-outline-light {
+  width: 110px;
+  height: 110px;
+  border: 1px solid #ddd !important;
+  background-color: #fff !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 0;
+  box-shadow: none !important;
+  font-size: 35px;
+  padding: 5px 0 0;
+  line-height: 110px;
+  color: #ddd !important;
+  position: relative;
+  right: 0;
+  bottom: 0;
+}
+
+.dropdown-emoji .dropdown-toggle:after {
+  content: none;
+}
+
+.post-form .container-fluid, .post-form .col, .post-form .col-auto {
+  padding: 0;
+  height: auto;
+}
+
+.post-form .row {
+  height: auto;
+}
+
+.post-form .post-textarea {
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 5px;
+}
+
+.post-form .MuiFab-root, .post-form .MuiFab-root:hover {
+  border-radius: 5px;
+  position: absolute;
+  right: -5px;
+  bottom: 10px;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  width: 70px;
+  height: 30px;
+  border-color: #3D323D;
+  background-color: #3D323D;
+  color: #fff;
+  text-transform: none;
+  font-size: medium;
+}
+
+/* post */
+
+.post {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 10px 40px;
+  position: relative;
+}
+
+.post-emoji {
+  width: 100px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-date {
+  text-align: right;
+  width: 100%;
+  height: auto;
+}
+
+.post-date p {
+  width: 100%;
+  color: #B3ACB3;
+  font-size: small;
+  margin: 0;
+}
+
+.post .MuiFab-root, .post .MuiFab-root:hover {
+  border-radius: 5px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 45px;
+  height: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  border-color: #806E80;
+  background-color: #806E80;
+  color: #fff;
 }
 
 .friends-div {
