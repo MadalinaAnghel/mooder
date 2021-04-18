@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Profile from "../partialPages/Profile";
 import Feed from "../partialPages/Feed";
+import Friends from "../partialPages/Friends";
 import { useHistory } from "react-router-dom";
 
 export default function Newsfeed() {
@@ -33,7 +34,7 @@ export default function Newsfeed() {
             </Col>
             <Col xs lg="3">
               <div className="friends-div">
-                <h1> Friends </h1>
+                <Friends />
               </div>
             </Col>
           </Row>

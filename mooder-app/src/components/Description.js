@@ -65,7 +65,9 @@ export default function Description(props) {
   }
 
   function handleBlur() {
-    setEdit(false);
+    if(!props.edit) {
+      setEdit(false);
+    }
   }
 
   return (

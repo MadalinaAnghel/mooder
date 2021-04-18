@@ -82,7 +82,9 @@ router.route("/avatar")
   })
 
   .get(auth.required, (req, res, next) => {
-    const { payload: { id } } = req;
+    let { payload: { id } } = req;
+
+    id = (Object.keys(req.query).length !== 0) ? req.query.id : id;
 
       User.findById(id, (err, user) => {
         if(err) {
@@ -116,7 +118,9 @@ router.route("/name")
   })
 
   .get(auth.required, (req, res, next) => {
-    const { payload: { id } } = req;
+    let { payload: { id } } = req;
+
+    id = (Object.keys(req.query).length !== 0) ? req.query.id : id;
 
       User.findById(id, (err, user) => {
         if(err) {
@@ -132,7 +136,6 @@ router.route("/name")
   });
 
 //description
-
 router.route("/description")
   .post(auth.required, (req, res, next) => {
     const { payload: { id } } = req;
@@ -178,7 +181,8 @@ router.route("/post")
         {
           posts:
           {
-            emoji: req.body.emoji,
+            emojiId: req.body.emojiId,
+            emojiSkin: req.body.emojiSkin,
             text: req.body.text,
             date: Date.now()
           }
@@ -233,5 +237,20 @@ router.route("/delete-post")
       });
   });
 
+//get all users
+router.route("/users-list")
+  .get(auth.required, (req, res, next) => {
+
+      const query = User.find({}).select("_id name");
+
+      query.exec(function (err, users) {
+        if (err) {
+          console.log(err);
+          return next(err);
+        } else {
+          res.send(users);
+        }
+      });
+  });
 
 module.exports = router;

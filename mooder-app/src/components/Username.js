@@ -65,7 +65,9 @@ export default function Username(props) {
   }
 
   function handleBlur() {
-    setEdit(false);
+    if(!props.edit) {
+      setEdit(false);
+    }
   }
 
   return (

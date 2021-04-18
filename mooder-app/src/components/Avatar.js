@@ -3,7 +3,7 @@ import Image from "react-bootstrap/Image";
 import axios from "axios";
 import noPhoto from "../images/no-photo-available.png";
 
-export default function Avatar() {
+export default function Avatar(props) {
 
   const _isMounted = useRef(true);
 

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import Fab from "@material-ui/core/Fab";
 import axios from "axios";
 import querystring from "querystring";
@@ -17,7 +17,9 @@ export default function CreatePost() {
 
   const [text, setText] = useState("");
   const [emojiId, setEmojiId] = useState("");
+  const [emojiSkin, setEmojiSkin] = useState(1);
   const [emojiSelected, setEmojiSelected] = useState(false);
+  const [showEmojiMenu, setShowEmojiMenu] = useState(false);
 
   function handleChangeText(event) {
     setText(event.target.value);
@@ -25,16 +27,17 @@ export default function CreatePost() {
 
   function handleSelectEmoji(emoji) {
     setEmojiId(emoji.id);
+    setEmojiSkin(emoji.skin);
     setEmojiSelected(true);
+    setShowEmojiMenu(false);
   }
-
 
   function handleSubmit(event) {
 
     if(jwt) {
       axios.post(
         process.env.REACT_APP_API_URL + "/post",
-        querystring.stringify({emoji: emojiId, text:text}),
+        querystring.stringify({emojiId: emojiId, emojiSkin: emojiSkin, text:text}),
         { headers:
           {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -44,11 +47,16 @@ export default function CreatePost() {
       )
       .then(res => {
         setEmojiId("");
+        setEmojiSkin(0);
         setEmojiSelected(false);
         setText("");
       })
       .catch(err => console.log(err.data));
     }
+  }
+
+  function handleDropdown() {
+    setShowEmojiMenu(true);
   }
 
   return (
@@ -57,18 +65,13 @@ export default function CreatePost() {
       <Container fluid >
         <Row>
           <Col xs="auto">
-            <Dropdown className="dropdown-emoji">
-              <Dropdown.Toggle variant="outline-light" >
-                <i className="fas fa-plus" style={{display: emojiSelected ? "none" : "block"}} ></i>
-                <Emoji set="google" emoji={emojiId} size={50} style={{display: emojiSelected ? "block" : "none"}} />
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item>
-                  <Picker set="google" onSelect={handleSelectEmoji} />
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <Button className="dropdown-emoji" onClick={handleDropdown}>
+              <i className="fas fa-plus" style={{display: emojiSelected ? "none" : "block"}} ></i>
+              <Emoji set="google" emoji={emojiId} skin={emojiSkin || 1} size={50} style={{display: emojiSelected ? "block" : "none"}} />
+            </Button>
+            <div className="emoji-menu" style={{display: showEmojiMenu ? "block" : "none"}}>
+              <Picker set="google" onSelect={handleSelectEmoji} />
+            </div>
           </Col>
           <Col>
             <Form.Control

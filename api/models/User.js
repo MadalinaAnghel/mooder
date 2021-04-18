@@ -4,19 +4,13 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require("mongoose-findorcreate");
 
 const imageSchema = new mongoose.Schema({
-  imageName: {
-      type: String,
-      default: "none",
-      required: true
-  },
-  imageData: {
-      type: String,
-      required: true
-  }
+  imageName: String,
+  imageData: String
 });
 
 const postSchema = new mongoose.Schema({
-  emoji: String,
+  emojiId: String,
+  emojiSkin: Number,
   text: String,
   date: Date
 });
