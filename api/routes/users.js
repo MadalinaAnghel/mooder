@@ -84,7 +84,7 @@ router.route("/avatar")
   .get(auth.required, (req, res, next) => {
     let { payload: { id } } = req;
 
-    id = (Object.keys(req.query).length !== 0) ? req.query.id : id;
+    id = (Object.keys(req.query).length !== 0 && req.query.id !== null) ? req.query.id : id;
 
       User.findById(id, (err, user) => {
         if(err) {
@@ -120,7 +120,7 @@ router.route("/name")
   .get(auth.required, (req, res, next) => {
     let { payload: { id } } = req;
 
-    id = (Object.keys(req.query).length !== 0) ? req.query.id : id;
+    id = (Object.keys(req.query).length !== 0 && req.query.id !== null) ? req.query.id : id;
 
       User.findById(id, (err, user) => {
         if(err) {
@@ -154,7 +154,9 @@ router.route("/description")
   })
 
   .get(auth.required, (req, res, next) => {
-    const { payload: { id } } = req;
+    let { payload: { id } } = req;
+
+    id = (Object.keys(req.query).length !== 0 && req.query.id !== null) ? req.query.id : id;
 
       User.findById(id, (err, user) => {
         if(err) {
@@ -200,7 +202,9 @@ router.route("/post")
 
 router.route("/posts")
   .get(auth.required, (req, res, next) => {
-    const { payload: { id } } = req;
+    let { payload: { id } } = req;
+
+    id = (Object.keys(req.query).length !== 0 && req.query.id !== null) ? req.query.id : id;
 
       User.findById(id, (err, user) => {
         if(err) {

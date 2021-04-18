@@ -3,10 +3,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default function UserLine(props) {
 
   const jwt = localStorage.getItem('jwtToken');
+
+  let history = useHistory();
 
   const [username, setUsername] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -65,8 +68,12 @@ export default function UserLine(props) {
     }
   });
 
+  function handleClick() {
+    history.push("/user/" + props.id );
+  }
+
   return (
-    <div className="user-inline">
+    <div className="user-inline" onClick={handleClick}>
       <Row>
         <Col xs="auto">
           <Image className="avatar-user-inline" src={avatar}/>

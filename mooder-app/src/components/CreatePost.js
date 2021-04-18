@@ -56,7 +56,7 @@ export default function CreatePost() {
   }
 
   function handleDropdown() {
-    setShowEmojiMenu(true);
+    setShowEmojiMenu(!showEmojiMenu);
   }
 
   return (
@@ -69,8 +69,8 @@ export default function CreatePost() {
               <i className="fas fa-plus" style={{display: emojiSelected ? "none" : "block"}} ></i>
               <Emoji set="google" emoji={emojiId} skin={emojiSkin || 1} size={50} style={{display: emojiSelected ? "block" : "none"}} />
             </Button>
-            <div className="emoji-menu" style={{display: showEmojiMenu ? "block" : "none"}}>
-              <Picker set="google" onSelect={handleSelectEmoji} />
+            <div className="emoji-menu" style={{display: showEmojiMenu ? "block" : "none"}} >
+              <Picker set="google" onSelect={handleSelectEmoji}/>
             </div>
           </Col>
           <Col>

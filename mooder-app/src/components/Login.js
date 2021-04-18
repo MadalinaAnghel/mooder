@@ -26,7 +26,7 @@ export default function Login() {
     .then(res => {
       localStorage.setItem("userId", res.data._id);
       localStorage.setItem("jwtToken", res.data.token);
-      history.push("/newsfeed");
+      history.push("/main");
     })
     .catch(err => console.log(err.data));
 

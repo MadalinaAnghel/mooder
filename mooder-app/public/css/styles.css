@@ -79,15 +79,10 @@ footer {
 }
 
 /* register and login form button */
-.form .btn-primary, .form .btn-primary:disabled, .form .btn-primary:focus, .form .btn-primary:active {
-  border-color: #3D323D;
-  background-color: #3D323D;
-  box-shadow: none !important;
-}
-
+.form .btn-primary, .form .btn-primary:disabled, .form .btn-primary:focus, .form .btn-primary:active,
 .form .btn-primary:hover, .form .btn-primary:hover:active:focus, .form .btn-primary:hover:active, .form .btn-primary:hover:focus {
-  border-color: #806E80;
-  background-color: #806E80;
+  border-color: #3D323D !important;
+  background-color: #3D323D !important;
   box-shadow: none !important;
 }
 

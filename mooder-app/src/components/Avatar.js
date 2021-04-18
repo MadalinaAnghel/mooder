@@ -15,7 +15,11 @@ export default function Avatar(props) {
   useEffect(() => {
     axios.get(
       process.env.REACT_APP_API_URL + "/avatar",
-      { headers:
+      { params:
+        {
+          id: props.id
+        },
+        headers:
         {
           "Authorization": "Token " + jwt
         }
@@ -39,6 +43,9 @@ export default function Avatar(props) {
   });
 
   function avatarClicked() {
+    if(props.id) {
+      return;
+    }
     inputFile.current.click();
   }
 

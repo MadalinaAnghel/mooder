@@ -17,7 +17,11 @@ export default function Username(props) {
       setEdit(props.edit);
     axios.get(
       process.env.REACT_APP_API_URL + "/name",
-      { headers:
+      { params:
+        {
+          id: props.id
+        },
+        headers:
         {
           "Authorization": "Token " + jwt
         }
@@ -36,7 +40,7 @@ export default function Username(props) {
     return () => {
       _isMounted.current = false;
     }
-  }, [props.edit, jwt]);
+  }, [props.edit, props.id, jwt]);
 
   function handleChange(event) {
 
@@ -61,6 +65,9 @@ export default function Username(props) {
   }
 
   function handleClick() {
+    if(props.id) {
+      return;
+    }
     setEdit(true);
   }
 

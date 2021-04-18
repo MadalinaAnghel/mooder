@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Post from "../components/Post";
 import axios from "axios";
 
-export default function Posts() {
+export default function Posts(props) {
 
   const jwt = localStorage.getItem('jwtToken');
   const [posts, setPosts] = useState([]);
@@ -11,7 +11,11 @@ export default function Posts() {
     let _isMounted = true;
     axios.get(
       process.env.REACT_APP_API_URL + "/posts",
-      { headers:
+      { params:
+        {
+          id: props.id
+        },
+        headers:
         {
           "Authorization": "Token " + jwt
         }
@@ -27,7 +31,7 @@ export default function Posts() {
     return () => {
       _isMounted = false;
     }
-  }, [posts, jwt]);
+  }, [posts, props.id, jwt]);
 
   return (
     <div>
@@ -39,6 +43,7 @@ export default function Posts() {
             emojiSkin={post.emojiSkin}
             text={post.text}
             date={post.date}
+            showDelete={props.id ? false : true }
         />)
       )}
     </div>

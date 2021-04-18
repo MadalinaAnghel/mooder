@@ -51,7 +51,7 @@ export default function Post(props) {
             </Row>
           </Col>
         </Row>
-        <Fab style={{display: show ? "block" : "none"}} onClick={handleDelete}>
+        <Fab style={{display: (show && props.showDelete) ? "block" : "none"}} onClick={handleDelete}>
           <i className="far fa-trash-alt"></i>
         </Fab>
 

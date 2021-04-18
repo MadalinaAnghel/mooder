@@ -8,7 +8,7 @@ import Feed from "../partialPages/Feed";
 import Friends from "../partialPages/Friends";
 import { useHistory } from "react-router-dom";
 
-export default function Newsfeed() {
+export default function MainPage() {
 
   const jwt = localStorage.getItem('jwtToken');
 
@@ -20,7 +20,7 @@ export default function Newsfeed() {
     return(
       <div>
         <Header />
-        <Container fluid className="newsfeed">
+        <Container fluid className="main">
           <Row>
             <Col xs lg="3">
               <div className="profile-div">
