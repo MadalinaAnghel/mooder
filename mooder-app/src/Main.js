@@ -11,7 +11,7 @@ const Main = () => {
     <Switch>
       <Route exact path="/" component={Home}></Route>
       <Route exact path="/create_profile" component={CreateProfile}></Route>
-      <Route exact path="/main" component={MainPage}></Route>
+      <Route exact path="/feed" component={MainPage}></Route>
       <Route exact path="/user/:id" component={UserProfile}></Route>
     </Switch>
   );

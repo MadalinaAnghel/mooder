@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema ({
   avatar: imageSchema,
   name: String,
   description: String,
-  posts: [postSchema]
+  posts: [postSchema],
+  friends: [String]
 });
 
 userSchema.plugin(passportLocalMongoose);

@@ -17,7 +17,7 @@ export default function CreateProfile() {
   let history = useHistory();
 
   function handleClick() {
-    history.push("/main");
+    history.push("/feed");
   }
 
   if(jwt === null) {

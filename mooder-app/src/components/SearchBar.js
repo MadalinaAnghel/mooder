@@ -66,13 +66,12 @@ export default function SearchBar() {
         <Col xs="auto" className="search-icon" style={{visibility: "hidden"}}>
           <i className="fas fa-search"></i>
         </Col>
-        <Col className="search-results" style={{display: (foundUsers.length === 0) ? "none" : "block"}} >
-          <div >
+        <Col className="search-results-col" style={{display: (foundUsers.length === 0) ? "none" : "block"}} >
+          <div className="results" >
             {foundUsers.map( (user, idx) =>
               (<UserLine
                   key={idx}
                   id={user._id}
-                  name={user.name}
               />)
             )}
           </div>

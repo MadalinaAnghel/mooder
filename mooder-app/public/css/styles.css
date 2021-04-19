@@ -111,7 +111,7 @@ footer {
   border: 1px solid #ddd;
 }
 
-/* current user profile div */
+/* user profile div */
 .profile-div {
   margin: 5% -10px;
   background-color: #fff;
@@ -129,6 +129,20 @@ footer {
 .profile-div .form-control:focus{
   border-color: #ced4da;
   box-shadow: none;
+}
+
+.friend-req-btn {
+  border-color: #3D323D !important;
+  background-color: #3D323D !important;
+  box-shadow: none !important;
+  margin: 0 auto;
+}
+
+.friend-btn {
+  border-color: #6E5D6E !important;
+  background-color: #6E5D6E !important;
+  box-shadow: none !important;
+  margin: 0 auto;
 }
 
 /* posts div */
@@ -246,8 +260,8 @@ footer {
   box-shadow: none;
   cursor: pointer;
   outline: none;
-  border-color: #806E80;
-  background-color: #806E80;
+  border-color: #6E5D6E;
+  background-color: #6E5D6E;
   color: #fff;
 }
 
@@ -266,6 +280,7 @@ footer {
 
 .search-bar {
   margin: 0 10px;
+  position: relative;
 }
 
 .search-bar .search-icon {
@@ -297,15 +312,22 @@ footer {
   padding: 0;
 }
 
-.search-results {
+.search-bar .search-results-col {
+  padding: 0;
+}
+
+.results {
+  width: 100%;
   background-color: #fff;
   border: 1px solid #ddd;
-  padding: 0;
+  position: absolute;
+  z-index: 10;
+  padding: 0 15px;
 }
 
 /* user inline */
 .user-inline {
-  line-height: 40px
+  line-height: 40px;
 }
 
 .user-inline .col, .user-inline .col-auto {
@@ -326,4 +348,19 @@ footer {
   font-size: medium;
   font-weight: 500;
   color: #3D323D;
+}
+
+/* friends list */
+.friends-list {
+  padding: 5px 15px;
+}
+
+.friends-div h3 {
+  color: #3D323D;
+  font-weight: 500;
+  margin: 0;
+}
+
+.friends-div hr {
+  margin: 0 -5px;
 }

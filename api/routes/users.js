@@ -241,7 +241,7 @@ router.route("/delete-post")
       });
   });
 
-//get all users
+// get all users
 router.route("/users-list")
   .get(auth.required, (req, res, next) => {
 
@@ -256,5 +256,131 @@ router.route("/users-list")
         }
       });
   });
+
+// friends
+
+router.route("/add-friend")
+  .post(auth.required, (req, res, next) => {
+    const { payload: { id } } = req;
+
+    const friend_id = req.body.id;
+
+    let error = false;
+
+    User.updateOne(
+      {_id: id},
+      {
+        $addToSet:
+        {
+          friends: friend_id
+        }
+      },
+      (err) => {
+        if(err) {
+          error = true;
+        }
+      });
+
+      User.updateOne(
+        {_id: friend_id},
+        {
+          $addToSet:
+          {
+            friends: id
+          }
+        },
+        (err) => {
+          if(err) {
+            error = true;
+          }
+        });
+
+        if(!error) {
+          res.sendStatus(200);
+        } else {
+          res.sendStatus(400);
+        }
+  });
+
+router.route("/remove-friend")
+  .post(auth.required, (req, res, next) => {
+    const { payload: { id } } = req;
+
+    const friend_id = req.body.id;
+
+    let error = false;
+
+    User.updateOne(
+      {_id: id},
+      {
+        $pull:
+        {
+          friends: friend_id
+        }
+      },
+      (err) => {
+        if(err) {
+          error = true;
+        }
+      });
+
+      User.updateOne(
+        {_id: friend_id},
+        {
+          $pull:
+          {
+            friends: id
+          }
+        },
+        (err) => {
+          if(err) {
+            error = true;
+          }
+        });
+
+        if(!error) {
+          res.sendStatus(200);
+        } else {
+          res.sendStatus(400);
+        }
+  });
+
+
+router.route("/check-friendship")
+  .get(auth.required, (req, res, next) => {
+    const { payload: { id } } = req;
+
+    const friend_id = req.query.id;
+
+      User.findById(id, (err, user) => {
+        if(err) {
+          console.log(err);
+        } else {
+          if(user.friends.includes(friend_id)) {
+            res.sendStatus(200);
+          } else {
+            res.sendStatus(400);
+          }
+      }
+    });
+  });
+
+router.route("/friends")
+  .get(auth.required, (req, res, next) => {
+    const { payload: { id } } = req;
+
+    User.findById(id, (err, user) => {
+      if(err) {
+        console.log(err);
+      } else {
+        if(user.friends) {
+          res.send(user.friends);
+        } else {
+          res.sendStatus(400);
+        }
+      }
+    });
+  });
+
 
 module.exports = router;
