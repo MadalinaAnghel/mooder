@@ -78,7 +78,7 @@ export default function Description(props) {
   }
 
   return (
-    <div>
+    <div className="description">
       <p style={{display: edit ? "none" : "block"}} onClick={handleClick}> {description} </p>
       <Form.Control
         as="textarea"

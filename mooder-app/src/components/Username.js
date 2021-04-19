@@ -78,7 +78,7 @@ export default function Username(props) {
   }
 
   return (
-    <div>
+    <div className="username">
       <h3 style={{display: edit ? "none" : "block"}} onClick={handleClick}> {username} </h3>
       <Form.Control
         type="text"

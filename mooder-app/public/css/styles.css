@@ -53,7 +53,7 @@ footer {
   color: #806E80;
 }
 
-.tab-content {
+.log-in .tab-content {
   background-color: #fff;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -84,6 +84,15 @@ footer {
   border-color: #3D323D !important;
   background-color: #3D323D !important;
   box-shadow: none !important;
+}
+
+/* main tab */
+.main-tab {
+  margin: 0;
+}
+
+.main-div-mobile .profile-div, .main-div-mobile .posts-div, .main-div-mobile .friends-div {
+  margin: 0;
 }
 
 /* create profile */
@@ -121,9 +130,17 @@ footer {
   text-align: center;
 }
 
+.username {
+  text-align: center;
+}
+
 .profile-div h3 {
   color: #3D323D;
   font-weight: 700;
+}
+
+.description {
+  text-align: center;
 }
 
 .profile-div .form-control:focus{
