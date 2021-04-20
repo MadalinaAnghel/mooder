@@ -18,7 +18,7 @@ export default function UserLine(props) {
     let _isMounted = true;
 
     axios.get(
-      process.env.REACT_APP_API_URL + "/avatar",
+      "/avatar",
       { params:
         {
           id: props.id
@@ -32,7 +32,7 @@ export default function UserLine(props) {
     .then(res => {
       if (_isMounted) {
         if(res.data) {
-          setAvatar(process.env.REACT_APP_IMG_URL + res.data);
+          setAvatar(res.data);
         }
       }
     })
@@ -41,7 +41,7 @@ export default function UserLine(props) {
     });
 
     axios.get(
-      process.env.REACT_APP_API_URL + "/name",
+      "/name",
       { params:
         {
           id: props.id

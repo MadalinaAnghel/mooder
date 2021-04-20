@@ -17,7 +17,7 @@ export default function SearchBar() {
 
   useEffect(() => {
     axios.get(
-      process.env.REACT_APP_API_URL + "/users-list",
+      "/users-list",
       { headers:
         {
           "Authorization": "Token " + jwt

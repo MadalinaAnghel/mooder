@@ -10,7 +10,7 @@ export default function Posts(props) {
   useEffect(() => {
     let _isMounted = true;
     axios.get(
-      process.env.REACT_APP_API_URL + "/posts",
+      "/posts",
       { params:
         {
           id: props.id

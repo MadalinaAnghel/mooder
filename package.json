@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "node app.js"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "name": "mooder-app",
   "version": "1.0.0",

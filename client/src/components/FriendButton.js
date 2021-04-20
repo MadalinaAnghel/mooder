@@ -17,7 +17,7 @@ export default function FriendButton(props) {
 
     if(props.id) {
       axios.get(
-        process.env.REACT_APP_API_URL + "/check-friendship",
+        "/check-friendship",
         { params:
           {
             id: props.id
@@ -45,7 +45,7 @@ export default function FriendButton(props) {
   function handleClick() {
     if(!friends) {
       axios.post(
-        process.env.REACT_APP_API_URL + "/add-friend",
+        "/add-friend",
         querystring.stringify({id: props.id}),
         { headers:
           {
@@ -62,7 +62,7 @@ export default function FriendButton(props) {
       });
     } else {
       axios.post(
-        process.env.REACT_APP_API_URL + "/remove-friend",
+        "/remove-friend",
         querystring.stringify({id: props.id}),
         { headers:
           {

@@ -16,7 +16,7 @@ export default function Description(props) {
     if(props.edit)
       setEdit(props.edit);
     axios.get(
-      process.env.REACT_APP_API_URL + "/description",
+      "/description",
       { params:
         {
           id: props.id
@@ -49,7 +49,7 @@ export default function Description(props) {
     if(jwt) {
 
       axios.post(
-        process.env.REACT_APP_API_URL + "/description",
+        "/description",
         querystring.stringify({description: event.target.value}),
         { headers:
           {

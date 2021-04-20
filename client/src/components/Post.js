@@ -18,7 +18,7 @@ export default function Post(props) {
 
     if(jwt) {
       axios.post(
-        process.env.REACT_APP_API_URL + "/delete-post",
+        "/delete-post",
         querystring.stringify({id: props.id}),
         { headers:
           {

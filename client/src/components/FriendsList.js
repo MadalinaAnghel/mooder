@@ -12,7 +12,7 @@ export default function FriendsList() {
 
   useEffect(() => {
     axios.get(
-      process.env.REACT_APP_API_URL + "/friends",
+      "/friends",
       { headers:
         {
           "Authorization": "Token " + jwt

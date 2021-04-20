@@ -91,7 +91,7 @@ router.route("/avatar")
           console.log(err);
         } else {
           if(user.avatar) {
-            res.send(user.avatar.imageData);
+            res.send(req.protocol + "://" + req.get('host') + "/" + user.avatar.imageData);
           } else {
             res.sendStatus(400);
           }
