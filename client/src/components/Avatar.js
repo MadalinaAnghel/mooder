@@ -28,6 +28,7 @@ export default function Avatar(props) {
     .then(res => {
       if (_isMounted.current) {
         if(res.data) {
+          console.log(res.data);
           setAvatar(res.data);
         } else {
           setAvatar(noPhoto);
