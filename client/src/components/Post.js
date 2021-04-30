@@ -18,7 +18,7 @@ export default function Post(props) {
 
     if(jwt) {
       axios.post(
-        "/delete-post",
+        "/users/delete-post",
         querystring.stringify({id: props.id}),
         { headers:
           {

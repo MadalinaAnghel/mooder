@@ -18,7 +18,7 @@ export default function UserLine(props) {
     let _isMounted = true;
 
     axios.get(
-      "/avatar",
+      "/users/avatar",
       { params:
         {
           id: props.id
@@ -41,7 +41,7 @@ export default function UserLine(props) {
     });
 
     axios.get(
-      "/name",
+      "/users/name",
       { params:
         {
           id: props.id
@@ -73,7 +73,7 @@ export default function UserLine(props) {
   }
 
   return (
-    <div className="user-inline" onClick={handleClick}>
+    <div className={ props.class ? ("user-inline " + props.class) : "user-inline" } onClick={handleClick}>
       <Row>
         <Col xs="auto">
           <Image className="avatar-user-inline" src={avatar}/>

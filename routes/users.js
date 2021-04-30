@@ -365,6 +365,8 @@ router.route("/check-friendship")
     });
   });
 
+// get all friends of current user
+
 router.route("/friends")
   .get(auth.required, (req, res, next) => {
     const { payload: { id } } = req;
@@ -381,6 +383,5 @@ router.route("/friends")
       }
     });
   });
-
 
 module.exports = router;

@@ -7,11 +7,11 @@ import Col from "react-bootstrap/Col";
 import Register from "../components/Register";
 import Login from "../components/Login";
 import Header from "../components/Header";
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from "react-responsive";
 
 export default function Home() {
 
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1224px)' });
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
   return (

@@ -16,7 +16,7 @@ export default function Username(props) {
     if(props.edit)
       setEdit(props.edit);
     axios.get(
-      "/name",
+      "/users/name",
       { params:
         {
           id: props.id
@@ -49,7 +49,7 @@ export default function Username(props) {
     if(jwt) {
 
       axios.post(
-        "/name",
+        "/users/name",
         querystring.stringify({name: event.target.value}),
         { headers:
           {

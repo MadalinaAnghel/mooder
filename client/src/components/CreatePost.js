@@ -36,7 +36,7 @@ export default function CreatePost() {
 
     if(jwt) {
       axios.post(
-        "/post",
+        "/users/post",
         querystring.stringify({emojiId: emojiId, emojiSkin: emojiSkin, text:text}),
         { headers:
           {

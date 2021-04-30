@@ -5,6 +5,8 @@ const session = require("express-session");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const http = require("http");
+const socketIO = require("socket.io");
 
 mongoose.promise = global.Promise;
 
@@ -28,15 +30,23 @@ mongoose.set("useCreateIndex", true);
 
 //models
 require("./models/User");
+require("./models/Conversation");
 require("./config/passport");
+
+const server = http.createServer(app);
+const io = socketIO(server);
+
+app.set("io", io);
 
 //routes
 var usersRouter = require("./routes/users");
 app.use("/api/users", usersRouter);
+var messagesRouter = require("./routes/messages");
+app.use("/api/messages", messagesRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server running on ${port}.`));
+server.listen(port, () => console.log(`Server running on ${port}.`));

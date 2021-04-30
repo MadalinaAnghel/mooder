@@ -21,7 +21,7 @@ export default function Register() {
   function handleSubmit(event) {
 
     axios.post(
-      "/register",
+      "/users/register",
       querystring.stringify({username: email, password:password}),
       { headers: { "Content-Type": "application/x-www-form-urlencoded"}}
     )

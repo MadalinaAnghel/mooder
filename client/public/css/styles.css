@@ -163,6 +163,16 @@ footer {
   margin: 0 auto;
 }
 
+.message-btn {
+  border-color: #3D323D !important;
+  background-color: transparent !important;
+  color: #3D323D !important;
+  box-shadow: none !important;
+  margin: 15px auto 0;
+  font-size: small !important;
+  font-weight: 500 !important;
+}
+
 /* posts div */
 .posts-div {
   margin: 2.5% -10px;
@@ -294,6 +304,15 @@ footer {
   padding: 20px;
 }
 
+.friends-title h3{
+  display: inline-block;
+}
+
+.friends-title .message-btn {
+  display: inline-block;
+  float: right;
+  margin: 0;
+}
 /* search bar */
 
 .search-bar {
@@ -381,4 +400,121 @@ footer {
 
 .friends-div hr {
   margin: 0 -5px;
+}
+
+/* chat */
+.chat-div {
+  margin: 2.5% -10px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.chat-div hr {
+  margin: 0 -10px;
+}
+
+/* message form */
+.message-form {
+  padding: 20px 40px;
+}
+
+.message-form .col, .message-form .col-auto {
+  padding: 0;
+}
+
+.send-btn {
+  border-color: #3D323D !important;
+  background-color: #3D323D !important;
+  box-shadow: none !important;
+  height: 62px;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 5px;
+}
+
+.message-form .form-control:focus{
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+.message-form .message-textarea {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 0;
+}
+
+/* messages */
+
+.messages {
+  overflow-y:auto;
+  height: 50vh;
+}
+
+/* message */
+
+.message {
+  background-color: #EEE8EE;
+  border-radius: 5px;
+  margin: 10px 5%;
+  max-width: 60%;
+  padding: 1% 3%;
+}
+
+.message-friend {
+  background-color: #3D323D;
+  color: #fff;
+}
+
+.right-allign {
+  margin-left: auto;
+}
+
+.message-date {
+  width: 100%;
+  color: #B3ACB3;
+  font-size: small;
+  margin: 0;
+  text-align: right;
+}
+
+/* conversations */
+
+.messages-div {
+  margin: 2.5% -10px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 2% 5%;
+}
+
+.messages-div h3 {
+  color: #3D323D;
+  font-weight: 500;
+  margin: 0;
+}
+
+.messages-div hr {
+  margin: 0 -3%;
+}
+
+/* conversation */
+
+.conversation {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1% 5%;
+  line-height: 1;
+  margin: 1% 5%;
+  background-color: #EEE8EE;
+}
+
+.conversation-user {
+  width: fit-content;
+}
+
+.conversation-date {
+  font-size: small;
+  margin-left: 40px;
 }

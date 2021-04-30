@@ -14,7 +14,7 @@ export default function Avatar(props) {
 
   useEffect(() => {
     axios.get(
-      "/avatar",
+      "/users/avatar",
       { params:
         {
           id: props.id
@@ -28,7 +28,6 @@ export default function Avatar(props) {
     .then(res => {
       if (_isMounted.current) {
         if(res.data) {
-          console.log(res.data);
           setAvatar(res.data);
         } else {
           setAvatar(noPhoto);
@@ -59,7 +58,7 @@ export default function Avatar(props) {
     if(jwt) {
 
       axios.post(
-        "/avatar", imageFormObj,
+        "/users/avatar", imageFormObj,
         { headers:
           {
             "Authorization": "Token " + jwt

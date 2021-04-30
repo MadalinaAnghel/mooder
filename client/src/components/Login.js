@@ -19,7 +19,7 @@ export default function Login() {
   function handleSubmit(event) {
 
     axios.post(
-      "/login",
+      "/users/login",
       querystring.stringify({username: email, password:password}),
       { headers: { "Content-Type": "application/x-www-form-urlencoded"}}
     )

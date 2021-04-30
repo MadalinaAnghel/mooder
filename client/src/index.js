@@ -4,7 +4,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import axios from 'axios';
 
-axios.defaults.baseURL = window.location.origin + "/api/users";
+axios.defaults.baseURL = window.location.origin + "/api";
 
 ReactDOM.render(
   <BrowserRouter>

@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
+import Button from "react-bootstrap/Button";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import UserLine from "./UserLine";
 
 export default function FriendsList() {
@@ -10,9 +12,11 @@ export default function FriendsList() {
 
   const [friends, setFriends] = useState([]);
 
+  let history = useHistory();
+
   useEffect(() => {
     axios.get(
-      "/friends",
+      "/users/friends",
       { headers:
         {
           "Authorization": "Token " + jwt
@@ -31,10 +35,19 @@ export default function FriendsList() {
     }
   }, [friends, jwt]);
 
+  function handleClick() {
+    history.push("/messages");
+  }
+
   return (
     <div>
+      <div className="friends-title">
       <h3> Friends </h3>
-      <hr />
+        <Button className={"message-btn"} onClick={handleClick}>
+          <i className="far fa-comment-alt"></i> Messages
+        </Button>
+        <hr />
+      </div>
       <div className="friends-list">
         {friends.map( (id, idx) =>
           (<UserLine

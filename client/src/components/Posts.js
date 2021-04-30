@@ -10,7 +10,7 @@ export default function Posts(props) {
   useEffect(() => {
     let _isMounted = true;
     axios.get(
-      "/posts",
+      "/users/posts",
       { params:
         {
           id: props.id
@@ -23,7 +23,7 @@ export default function Posts(props) {
     )
     .then(res => {
       if (_isMounted) {
-        (res.data).sort((a,b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
+        (res.data).sort((a,b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0));
         setPosts(res.data);
       }
     })

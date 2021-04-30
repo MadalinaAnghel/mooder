@@ -17,7 +17,7 @@ export default function SearchBar() {
 
   useEffect(() => {
     axios.get(
-      "/users-list",
+      "/users/users-list",
       { headers:
         {
           "Authorization": "Token " + jwt
