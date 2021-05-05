@@ -46,8 +46,8 @@ export default function Post(props) {
             <Row className="post-date">
               <p>{DateFormat(props.date, "d mmm yyyy, H:MM")}</p>
             </Row>
-            <Row>
-              <p className="post-text">{props.text}</p>
+            <Row className="post-text">
+              <p>{props.text}</p>
             </Row>
           </Col>
         </Row>

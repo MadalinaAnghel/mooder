@@ -258,6 +258,10 @@ footer {
   position: relative;
 }
 
+.post-text {
+  width: 100%;
+}
+
 .post-emoji {
   width: 100px !important;
   display: flex;
